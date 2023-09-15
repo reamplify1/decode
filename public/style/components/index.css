@@ -1,0 +1,26 @@
+.index-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.index-blogs{
+    width: 70%;
+    height: 50vh;
+    background-color: rgb(33, 175, 194);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+}
+.index-category{
+    width: 30%;
+    height: 50vh;
+    background-color: #e2b554;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.index-container h3, .index-blogs h3{
+    font-size: 25px;
+    font-weight: 600;
+}
