@@ -19,13 +19,14 @@
     width: 200px;
 }
 .login-box input{
-    width: 100%;
+    width: calc(100% - 15px);
     padding: 5px;
+   
 }
 .login-box button{
     width: 100%;
     padding: 5px;
-    background-color: #33aabf;
+    background-color: #00A2DC;
     color: #fff;
     border: none;
     border-radius: 3px;
