@@ -2,8 +2,9 @@ header {
     padding: 20px 5%;
     background-color: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    height: 120px;
 }
 .head-logo{
     width: 15%;
@@ -18,7 +19,7 @@ header {
     width: 30%;
 }
 .head-search input {
-    padding: 5px 7px;
+    padding: 7px 7px;
     width: 95%;
     border: 1px solid #E7E7E7;
     border-top-left-radius: 2px;
@@ -34,8 +35,8 @@ header {
     display: flex;
     align-items: center;
     text-align: center;
-    padding: 5px 7px;
-    border: 1px transparent;
+    padding: 8px 8px;
+    border: 1px #00A2DC solid;
     color: #fff;
     background-color: #00A2DC;
     border-top-left-radius: 0;
@@ -56,8 +57,8 @@ header {
     font-size: 15px;
 }
 .head-buttons button {
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 34px;
     background-color: #00A2DC;
     color: #fff;
     border: none;

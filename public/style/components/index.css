@@ -1,26 +1,114 @@
 .index-container{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
+    padding: 0 30px;
+
+    gap: 30px;
 }
 .index-blogs{
-    width: 70%;
-    height: 50vh;
-    background-color: rgb(33, 175, 194);
+    width: 80%;
+    background-color:#fff;
     display: flex;
     justify-content: center;
     align-items:center;
+    flex-direction: column;
+    padding: 50px;
+}
+.index-blogs-container{
+    display: flex;
+    flex-direction: column;
+}
+.index-blogs h3{
+    font-size: 30px;
+    font-weight: 800;
+    margin: 30px;
 
 }
-.index-category{
-    width: 30%;
-    height: 50vh;
-    background-color: #e2b554;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.index-blogs p{
+    font-size: 20px;
+    text-align: center;
+
 }
-.index-container h3, .index-blogs h3{
-    font-size: 25px;
-    font-weight: 600;
+.index-blogs img{
+    margin: 30px;
+    width: 600px;
+}
+.index-blogs-container h4{
+    font-size: 20px;
+    font-weight: 400;
+    margin: 30px 15px;
+    /* display: flex; */
+    /* justify-content: start; */
+    /* text-align: left; */
+}
+
+.index-blogs-container span{
+    font-size: 17px;
+    margin: 15px;
+    display: flex;
+    text-align: left;
+}
+.left{
+    text-align: left;
+}
+
+.index-blogs-data{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* размер картинки по классу */
+img.date{  
+    width: 100px;
+}
+img.views{  
+    width: 50px;
+}
+img.comments{  
+    width: 40px;
+}
+img.category{  
+    width: 140px;
+}
+img.author{  
+    width: 100px;
+}
+/* Категории */
+.index-category h3{
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 35px;
+}
+.index-category{
+    width: 20%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 20px;
+    height: 500px;
+    /* height: 55vh; */
+}
+.index-category a{
+    text-decoration: none;
+    /* margin-bottom: 20px; */
+    color: #007BFF;
+    font-weight: 400;
+    /* border-bottom: 2px #E7E7E7 solid; */
+}
+/* .line::after{
+    content: '';
+    background-color: black;
+    height: 1px;
+    display: block;
+      
+} */
+.line{
+    border-top: 1px solid #a1a5aa;
+    height: 1px;
+    width: 100%;
+    margin-bottom: 20px;
 }

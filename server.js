@@ -17,7 +17,14 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req,res) => {
     res.render('login');
-})
+}) 
+
+app.get('/registration', (req,res) => {
+    res.render('registration');
+}) ;
+app.get('/new-blog', (req,res) => {
+    res.render('new-blog');
+}) ;
 
 //server express
 const PORT = 8000;

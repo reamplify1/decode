@@ -1,0 +1,25 @@
+<%- include('../views/partials/header.ejs') %>
+    <div class="container-registration">
+        <span>Новый блог</span>
+        <div class="registration-box mb-3">   
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Введите заголовок блога">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Выберите категорию</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+           
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea pla</label>
+            </select>
+            
+            <div class="yellow-btn">
+                <button>Выберите картинку</button>
+            </div>
+                
+            <textarea class="form-control new-blog-description" id="exampleFormControlTextarea1" rows="3" placeholder="Введите описание блога"></textarea>
+           
+            <button>Создать</button>
+        </div>
+    </div>
+</body>
+</html>
