@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <title>Document</title>
 <head>
+    <title>Document</title>
 <%- include('../views/partials/head.ejs') %>
-<%- include('../views/partials/header.ejs') %>
 </head>
 <body>    
+    <%- include('../views/partials/header.ejs') %>
     <div class="index-container">
         <div class="index-blogs shadow p-3 mb-5 bg-white rounded">
             <h3>Мои блоги</h3>
             <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
             <img src="/img/image 1.svg" alt="">
             <div class="index-blogs-container">
-                <h4 class="left">Обзор Report Manager от Webix</h4>
+                <div class="index-h3">
+                    <h4 class="left">Обзор Report Manager от Webix</h4>
+                    <div class="edit-content">
+                        <img src="/img/3dots.svg" alt="">
+                        <p>Еще</p>
+                    </div>
+                </div>
             
                 <span class="left">Осень 2020 года стала плодотворным временем для специалистов Webix. </span>
                 <span class="left">Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. </span>

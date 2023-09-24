@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <%- include('../views/partials/head.ejs') %>
+</head>
+<body>    
+    <%- include('../views/partials/header.ejs') %>
+    <div class="index-container">
+        <div class="index-blogs shadow p-3 mb-5 bg-white rounded">
+            <h3>Блоги по программированию</h3>
+            <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
+            <img src="/img/image 1.svg" alt="">
+            <div class="index-blogs-container">
+                <div class="index-h3">
+                    <h4 class="left">Обзор Report Manager от Webix</h4>
+                    <div class="edit-content">
+                        <img src="/img/3dots.svg" alt="">
+                        <p>Еще</p>
+                    </div>
+                </div>
+            
+                <span class="left">Осень 2020 года стала плодотворным временем для специалистов Webix. </span>
+                <span class="left">Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. </span>
+                <span class="left">Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его</span>
+            </div>
+            
+            <img src="/img/image 3.svg" alt="">
+            <div class="index-blogs-container">
+                <h4 class="left">Что такое комплексные виджеты Webix?</h4>
+            
+                <span class="left">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
+                </span>
+                <span class="left">Они уже готовы к интеграции в Ваше бизнес-приложение, что позволяет экономить рабочее время программистам. Это визуальное воплощение концепции low-code платформы, которой является Webix. Комплексные виджеты Webix сразу же готовы к работе, потому что они содержат функциональный фронт-энд слой и, при необходимости, снабжены различными опциями для бэк-энда. 
+                </span>
+                <span class="left">Гибкая архитектура Webix позволяет легко настраивать эти приложения, расширять их функциональность и интегрировать в существующие решения.о</span>
+            </div>
+            
+            <div class="comment-section">
+                <h4>2 комментария</h4>
+                <div class="comment-user">
+                    <div class="user-img">
+                        <img src="/img/avatar.jpeg" alt="">
+                    </div>
+                    <div class="user-name">
+                        <p>Хасбулла Магомедов</p>
+                    </div>   
+                </div>
+                <div class="comment-content">
+                    <span>В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
+                    </span>
+                </div>
+                <div class="comment-line"></div>
+                <div class="comment-user">
+                    <div class="user-img">
+                        <img src="/img/avatar.jpeg" alt="">
+                    </div>
+                    <div class="user-name">
+                        <p>Хасбулла Магомедов</p>
+                    </div>   
+                </div>
+                <div class="comment-content">
+                    <span>В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты - это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
+                    </span>
+                </div>
+            </div>  
+            <div class="forum-comment">
+                <input type="text" placeholder="Введите комментарий">
+                <button>Отправить</button>
+            </div>
+        </div>
+        <div class="index-category shadow p-3 mb-5 bg-white rounded">
+            <h3>Категории</h3>
+            <a class="line" href="">Прогнозы в IT</a>
+            <a class="line" href="">Веб-разработка</a>
+            <a class="line" href="">Мобильная разработка</a>
+            <a class="line" href="">Фриланс</a>
+            <a class="line" href="">Алгоритмы</a>
+            <a class="line" href="">Тестирование IT систем</a>
+            <a class="line" href="">Разработка игр</a>
+            <a class="line" href="">Дизайн и юзабилити</a>
+            <a class="line" href="">Искуственный интелект</a>
+            <a class="line" href="">Машинное обучение</a>
+         </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

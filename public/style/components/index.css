@@ -18,6 +18,7 @@
 .index-blogs-container{
     display: flex;
     flex-direction: column;
+    padding: 0 50px;
 }
 .index-blogs h3{
     font-size: 30px;

@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <title>Document</title>
 <head>
-<%- include('../views/partials/head.ejs') %>
-<%- include('../views/partials/header.ejs') %>
+    <title>Document</title>
+    <%- include('../views/partials/head.ejs') %>
 </head>
 <body>    
+    <%- include('../views/partials/header.ejs') %>
     <div class="container-login">
-        <span>Регистрация</span>
-        <div class="login-box">
-            <input type="text" placeholder="Введите email">
-            <input type="text" placeholder="Введите полное имя">
-            <input type="text" placeholder="Введите пароль">
-            <input type="text" placeholder="Подтвердите пароль">
-            <button>Зарегистрироваться</button>
-        </div>
+        <form action="/api/signup" method="post">
+            <span>Регистрация</span>
+            <div class="login-box">
+                <input type="text" placeholder="Введите email" name="email">
+                <input type="text" placeholder="Введите полное имя" name="full_name">
+                <input type="text" placeholder="Введите пароль" name="password">
+                <input type="text" placeholder="Подтвердите пароль" name="re_password">
+                <button>Зарегистрироваться</button>
+            </div>
+        </form>   
     </div>
 </body>
 </html>

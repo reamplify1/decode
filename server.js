@@ -5,6 +5,8 @@ const app = express();
 //  / - автоматически переносит в папке паблик
 app.use(express.static(__dirname + '/public'));
 
+app.use(express.urlencoded()) // расшифровка
+
 require('./server/config/db');
 
 //ejs, чтобы читать ejs
@@ -12,7 +14,9 @@ app.set('view engine', 'ejs');
 
 //router
 app.use(require('./server/pages/router'))
-app.use(require('./server/Genres/router'))
+app.use(require('./server/categories/router'))
+
+app.use(require('./server/auth/router'))
 //рендер index.ejs
 // app.get('/', (req, res) => {
 //     res.render('index');
