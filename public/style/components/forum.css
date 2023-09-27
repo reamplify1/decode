@@ -38,11 +38,15 @@
     gap: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    /* justify-content: start; */
     padding-bottom: 100px;
+    text-align: left;
+    /* align-items: start; */
 }
 .forum-comment input {
-    display: block;
+    display: flex;
+    text-align: left;
+    /* align-items: start; */
     width: 100%;
     height: 150px;
     
