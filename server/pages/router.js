@@ -13,12 +13,14 @@ router.get('/login', (req,res) => {
 }) 
 
 router.get('/registration', (req,res) => {
-    res.render('registration');
+    console.log(req.query);
+    res.render('registration', {error: req.query.error});
 }) ;
 router.get('/new-blog', (req,res) => {
     res.render('new-blog');
 }) ;
 router.get('/my-blog', (req,res) => {
+    // console.log(req.user);
     res.render('my-blog');
 }) ;
 router.get('/forum', (req,res) => {

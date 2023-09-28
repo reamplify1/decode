@@ -1,14 +1,29 @@
 //express
 const express = require('express');
 const app = express();
-
+const mongooseStore = require('connect-mongo')
+const session = require('express-session')
+const passport = require('passport')
 //  / - автоматически переносит в папке паблик
 app.use(express.static(__dirname + '/public'));
 
 app.use(express.urlencoded()) // расшифровка
 
-require('./server/config/db');
+app.use(session({
+    name: 'decode.session',       //название сессии
+    secret: 'keyboard cat',      // секретный ключ
+    maxAge: 1000 * 60 * 60 * 7,  // длительность сессии
+    resave: false,
+    store: mongooseStore.create ({
+        mongoUrl: 'mongodb://127.0.0.1:27017'
+    })
+}))
 
+app.use(passport.initialize())
+app.use(passport.session())
+
+require('./server/config/db');
+require('./server/config/passport')
 //ejs, чтобы читать ejs
 app.set('view engine', 'ejs');
 

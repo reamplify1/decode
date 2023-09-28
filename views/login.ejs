@@ -4,14 +4,17 @@
     <title>Document</title>
 <%- include('../views/partials/head.ejs') %>
 </head>
-<%- include('../views/partials/header.ejs') %>
 <body>    
+    <%- include('../views/partials/header.ejs') %>
     <div class="container-login">
         <span>Вход</span>
         <div class="login-box">
-            <input type="text" placeholder="Введите email">
-            <input type="text" placeholder="Введите пароль">
-            <button>Войти</button>
+            <form action="/api/signin" method="POST">
+                <input type="text" placeholder="Введите email" name="email">
+                <input type="text" placeholder="Введите пароль" name="password">
+                <button>Войти</button>
+            </form>
+            
         </div>
     </div>
 </body>

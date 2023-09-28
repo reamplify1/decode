@@ -15,6 +15,10 @@
                 <input type="text" placeholder="Введите пароль" name="password">
                 <input type="text" placeholder="Подтвердите пароль" name="re_password">
                 <button>Зарегистрироваться</button>
+                <% if(+error === 1) { %>
+                    <p style="color: red">Заполните все поля</p>  
+                <% }; %>
+                
             </div>
         </form>   
     </div>

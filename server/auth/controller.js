@@ -11,9 +11,9 @@ if(
     const findUser = await user.findOne({email: req.body.email}).count()
     console.log(findUser);
     if(findUser){
-        res.redirect('/register?error=3');
+        res.redirect('/registration?error=3');
     }else if(req.body.password !== req.body.re_password){
-        res.redirect('/register?error=2');
+        res.redirect('/rregistration?error=2');
     }else{
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(req.body.password, salt, function(err, hash) {
@@ -28,11 +28,17 @@ if(
     }
 
 }else{
-    res.redirect('/register?error=1');
+    res.redirect('/registration?error=1');
 }
 }
+
+const signIn = (req, res) => {
+    res.redirect('/my-blog')
+}
+
 module.exports = {
-        signUp
+        signUp,
+        signIn
 }
 
 
