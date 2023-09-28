@@ -48,13 +48,14 @@ header {
     width: 15px
 }
 .head-buttons a {
-    /* padding: 5px; */
-    /* width: 250px;
-    height: 50px; */
-    background-color: #00A2DC;
+
+    /* background-color: #00A2DC; */
     color: #fff;
     text-decoration: none;
     font-size: 15px;
+}
+.blue-a{
+    background-color: #00A2DC;
 }
 .head-buttons button {
     width: 120px;
@@ -64,3 +65,15 @@ header {
     border: none;
     border-radius: 3px;
 }
+
+.profile{
+    width: 60px;
+    border-radius: 50%
+}
+
+/* .profile-a{
+    background: transparent;
+    background-color: none;
+    /* background-color: #fff; */
+    /* opacity: 0; */
+} */

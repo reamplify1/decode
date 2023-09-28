@@ -9,7 +9,7 @@ if(
     req.body.re_password.length > 0
 ){
     const findUser = await user.findOne({email: req.body.email}).count()
-    console.log(findUser);
+    // console.log(findUser);
     if(findUser){
         res.redirect('/registration?error=3');
     }else if(req.body.password !== req.body.re_password){
@@ -33,7 +33,7 @@ if(
 }
 
 const signIn = (req, res) => {
-    res.redirect('/my-blog')
+    res.redirect(`/my-blog/${req.user._id}`)
 }
 
 module.exports = {

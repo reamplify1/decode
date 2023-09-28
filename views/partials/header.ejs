@@ -10,7 +10,20 @@
             <button><img src="/img/icons/search.svg" alt="">Найти</button>
         </div>
         <div class="head-buttons">
-            <a href="/registration"><button>Регистрация</button></a>
-            <a href="/login"><button>Вход</button></a>
+            <% 
+                if(user._id){
+            %>
+                    <a class="profile-a" style="background-color: none;" href="/my-blog/<%= user._id %>">
+                        <img src="/img/avatar.jpeg" alt="" class="profile">
+                    </a>                    
+            <%
+                } else { 
+            %>
+                <a class="blue-a" href="/registration"><button>Регистрация</button></a>
+                <a class="blue-a" href="/login"><button>Вход</button></a>
+            <%        
+                }
+            %>
+            
         </div>
     </header>   
