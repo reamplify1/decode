@@ -57,6 +57,11 @@ header {
 .blue-a{
     background-color: #00A2DC;
 }
+.head-buttons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 .head-buttons button {
     width: 120px;
     height: 34px;
@@ -65,7 +70,18 @@ header {
     border: none;
     border-radius: 3px;
 }
-
+.logout-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 34px;
+    background-color: #00A2DC;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+}
 .profile{
     width: 60px;
     border-radius: 50%
@@ -76,4 +92,3 @@ header {
     background-color: none;
     /* background-color: #fff; */
     /* opacity: 0; */
-} */
