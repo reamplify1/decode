@@ -13,7 +13,7 @@ if(
     if(findUser){
         res.redirect('/registration?error=3');
     }else if(req.body.password !== req.body.re_password){
-        res.redirect('/rregistration?error=2');
+        res.redirect('/registration?error=2');
     }else{
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(req.body.password, salt, function(err, hash) {

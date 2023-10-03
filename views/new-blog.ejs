@@ -8,8 +8,8 @@
     <%- include('../views/partials/header.ejs') %>
     <div class="container-registration">
         <span>Новый блог</span>
-        <div class="registration-box mb-3">   
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Введите заголовок блога">
+        <form action="/new-blog" method="POST" class="registration-box mb-3">   
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Введите заголовок блога" name="title">
             <select class="form-select" aria-label="Default select example">
                 <option selected>Выберите категорию</option>
                 <option value="1">One</option>
@@ -23,10 +23,11 @@
                 <button>Выберите картинку</button>
             </div>
                 
-            <textarea class="form-control new-blog-description" id="exampleFormControlTextarea1" rows="3" placeholder="Введите описание блога"></textarea>
-           
-            <button>Создать</button>
-        </div>
+            <textarea class="form-control new-blog-description" id="exampleFormControlTextarea1" rows="3" placeholder="Введите описание блога" name="description" ></textarea>
+            <a href="/new">
+                <button type="submit">Создать</button>
+            </a>
+        </form>
     </div>
 </body>
 </html>

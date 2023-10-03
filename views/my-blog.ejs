@@ -8,6 +8,16 @@
     <%- include('../views/partials/header.ejs') %>
     <div class="index-container">
         <div class="index-blogs shadow p-3 mb-5 bg-white rounded">
+
+            <% 
+                blogs.forEach(item => {
+            %>
+                    <h4><%= item.title %></h4>
+                    <p><%= item.description %></p>
+            <%        
+                }); 
+            %>
+
             <h3>Мои блоги</h3>
             <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
             <img src="/img/image 1.svg" alt="">
