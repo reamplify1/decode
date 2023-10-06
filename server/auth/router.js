@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {signUp, signIn, signOut} = require('./controller') 
 const passport = require('passport')
+const {isAuth} = require('../auth/middleware')
 
 router.post('/api/signup', signUp)
 // router.post('api/signup', (req, res) =>{

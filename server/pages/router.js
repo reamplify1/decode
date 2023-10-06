@@ -19,10 +19,10 @@ router.get('/registration', (req,res) => {
 router.get('/new-blog', (req,res) => {
     res.render('new-blog', {user: req.user ? req.user : {}});
 }) ;
-router.get('/my-blog/', async(req,res) => { //'/my-blog/:id'
+router.get('/my-blog/:id', async(req,res) => { //'/my-blog/:id'
     // console.log(req.user);
-    const allBlogs = await blogs.find()
-    res.render('my-blog', {user: req.user ? req.user : {}}, {blogs: allBlogs});
+    const allBlogs = await blogs.find() // получили блоги, затем отправили их на страницу
+    res.render('my-blog', {user: req.user ? req.user : {}, blogs: allBlogs, });
 }) ;
 router.get('/forum', (req,res) => {
     res.render('forum', {user: req.user ? req.user : {}});
