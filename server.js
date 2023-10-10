@@ -35,6 +35,9 @@ app.use(require('./server/auth/router'))
 
 app.use(require('./server/blogs/router'))
 
+
+app.use(require('./server/options/router'))
+
 //рендер index.ejs
 // app.get('/', (req, res) => {
 //     res.render('index');

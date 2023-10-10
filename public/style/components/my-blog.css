@@ -169,3 +169,44 @@ img.author{
     margin: 0 auto;
     border-radius: 50%;
 }
+
+
+/* modal */
+
+#modal-window{
+    position: absolute;
+    bottom: 20;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+}
+.modal-content{
+    width: 200px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 700;
+    
+}
+.modal1{
+    background-color: #F8F8F8;
+    
+}
+.modal2{
+    background-color: #FD0000;
+}
+.modal1 p {
+    color: #000;
+}
+.modal2 p {
+    color: #fff;
+}
+.open{
+    display: flex !important;
+}

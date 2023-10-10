@@ -9,7 +9,8 @@ const createBlog = async(req, res) =>{
         await new blogs({
             title: req.body.title,
             description: req.body.description,
-            image: `${req.file.destination}/${req.file.filename}`
+            category: req.body.category,
+            image: `/img/blogs/${req.file.filename}`
         }).save()
         res.redirect(`/my-blog/${req.user._id}`)
     }else {
@@ -17,4 +18,14 @@ const createBlog = async(req, res) =>{
     }   
 }
 
-module.exports = {createBlog}
+const editBlog = (req, res) =>{
+    // console.log(req.params);
+    if(req.file && req.body.title.length > 0 
+        && req.body.description.length > 0)
+    {
+    }else{
+        res.redirect(`/edit-blog/${req.body.id}?error=1`)  ///??
+    }
+}
+
+module.exports = {createBlog, editBlog}

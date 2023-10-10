@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const blogsSchema = new mongoose.Schema({
     title: String,
     description: String,
-    image: String
+    category: {type: Schema.Types.ObjectId, ref: 'categories'},
+    image: String,
     // key: Number,  ?? 
 })
 

@@ -1,4 +1,4 @@
-const categories = require('./categories');
+const options = require('./options');
 
 const data = [
     'Прогнозы в IT',
@@ -13,13 +13,13 @@ const data = [
     'Машинное обучение',
 ];
 
-async function writeDataCategory() {
-    const length = await categories.countDocuments();
+async function writeDataOption() {
+    const length = await options.countDocuments();
 
     if (length === 0) {
         for (let index = 0; index < data.length; index++) {
             const item = data[index];
-            await new Categories({
+            await new options({
                 name: item,
                 key: index
             }).save();
@@ -30,19 +30,18 @@ async function writeDataCategory() {
     }
 }
 
-// проблема: категории сохраняются с правильными ключами, но не по порядку
-// async function writeDataCategory(){
-//     const length = await categories.count();
-//     if(length === 0) {
-//         data.map((item, index) => {
-//             new categories ({
-//                 name: item,
-//                 key: index
-//             }).save()
-//         })
-//     }
+// async function writeDataOption(){
+// 	const length = await options.count();
+// 	if(length == 0){
+// 		data.map((item, index) =>{
+// 			new options({
+// 				name: item,
+// 				key: index
+// 			}).save()
+// 		})
+// 	}
 // }
 
-// module.exports = {writeDataCategory, data};
-module.exports = writeDataCategory;
 
+
+module.exports = writeDataOption;

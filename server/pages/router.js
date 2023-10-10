@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const categories = require('../categories/categories')
 const blogs = require('../blogs/blogs')
+
+const options = require('../options/options')
+
 //app.get = router
 router.get('/', async(req, res) => {
     const allCategories = await categories.find()
@@ -16,8 +19,11 @@ router.get('/registration', (req,res) => {
     // console.log(req.query);
     res.render('registration', {error: req.query.error, user: req.user ? req.user : {}});
 }) ;
-router.get('/new-blog', (req,res) => {
-    res.render('new-blog', {user: req.user ? req.user : {}});
+router.get('/new-blog', async (req,res) => {
+    // const allCategories = categories.find()
+
+    const allOptions = await options.find()
+    res.render('new-blog', {options: allOptions, user: req.user ? req.user : {}});
 }) ;
 router.get('/my-blog/:id', async(req,res) => { //'/my-blog/:id'
     // console.log(req.user);
@@ -26,6 +32,9 @@ router.get('/my-blog/:id', async(req,res) => { //'/my-blog/:id'
 }) ;
 router.get('/forum', (req,res) => {
     res.render('forum', {user: req.user ? req.user : {}});
+}) ;
+router.get('/edit', (req,res) => {
+    res.render('edit-blog', {user: req.user ? req.user : {}});
 }) ;
 
 // router.get('/new', async(req,res) => {

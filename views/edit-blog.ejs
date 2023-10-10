@@ -7,20 +7,19 @@
 <body>    
     <%- include('../views/partials/header.ejs') %>
     <div class="container-registration">
-        <span>Новый блог</span>
-        <form action="/new-blog/new" method="POST" class="registration-box mb-3" enctype="multipart/form-data">   
+        <span>Редактировать блог</span>
+        <form action="/api/blog-edit" method="POST" class="registration-box mb-3" enctype="multipart/form-data">   
+            <fieldset>
+                <!-- <input type="hidden" value="<%= blog._id %>" name="id"> -->
+            </fieldset>
+            
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Введите заголовок блога" name="title">
             <select class="form-select" aria-label="Default select example">
                 <option selected>Выберите категорию</option>
-                <% 
-                    options.forEach(option => {
-                %>
-                    <option value=""><%= option.name %> </option>
-                <%
-                    })
-                %>
-
-           
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                
                 <label for="exampleFormControlTextarea1" class="form-label">Example textarea pla</label>
             </select>
             
@@ -31,7 +30,7 @@
                 
             <textarea class="form-control new-blog-description" id="exampleFormControlTextarea1" rows="3" placeholder="Введите описание блога" name="description" ></textarea>
            
-            <button type="submit">Создать</button>
+            <button type="submit">Сохранить</button>
         </form>
     </div>
 </body>
