@@ -13,9 +13,9 @@
             <select class="form-select" aria-label="Default select example">
                 <option selected>Выберите категорию</option>
                 <% 
-                    options.forEach(option => {
+                    categories.forEach(category => {
                 %>
-                    <option value=""><%= option.name %> </option>
+                    <option value=""><%= category.name %> </option>
                 <%
                     })
                 %>

@@ -6,7 +6,7 @@ const router = express.Router();
 
 const{getAllCategories} = require('./controller')
 
-const writeDataCategory = require('./seed')
+const {writeDataCategory} = require('./seed')
 
 router.get('/api/categories', getAllCategories)
 

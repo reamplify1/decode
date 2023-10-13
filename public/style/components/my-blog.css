@@ -17,8 +17,15 @@
 }
 .index-blogs-container{
     display: flex;
+    position: relative;
     flex-direction: column;
 }
+.blog-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+  }
 .index-blogs h3{
     font-size: 30px;
     font-weight: 800;
@@ -45,13 +52,17 @@
 .index-h3{
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
 }
 .edit-content{
+    position: relative;
     width: 5%;
     display: flex;
     align-items: center;
     gap: 5px;
     padding-right: 65px;
+    
 }
 .edit-content img{
     height: 15px;
@@ -68,6 +79,9 @@
     margin: 15px;
     display: flex;
     text-align: left;
+}
+.index-blogs-container img{
+    margin-right: 10px;
 }
 .left{
     text-align: left;
@@ -96,10 +110,10 @@ img.comments{
     width: 40px;
 }
 img.category{  
-    width: 140px;
+    width: 20px;
 }
 img.author{  
-    width: 100px;
+    width: 30px;
 }
 /* Категории */
 .index-category h3{
@@ -173,7 +187,7 @@ img.author{
 
 /* modal */
 
-#modal-window{
+/* #modal-window{
     position: absolute;
     bottom: 20;
     right: 0;
@@ -182,6 +196,17 @@ img.author{
     align-items: center;
     z-index: 10;
 
+} */
+#modal-window {
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Позиция справа от родительского элемента (в данном случае, отображаемой картинки) */
+    transform: translate(-100%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    
 }
 .modal-content{
     width: 200px;
@@ -193,19 +218,21 @@ img.author{
     font-size: 15px;
     font-weight: 700;
     
+    
 }
 .modal1{
     background-color: #F8F8F8;
     
 }
 .modal2{
-    background-color: #FD0000;
+    background-color: #F8F8F8;
 }
 .modal1 p {
     color: #000;
+    
 }
 .modal2 p {
-    color: #fff;
+    color: red;
 }
 .open{
     display: flex !important;

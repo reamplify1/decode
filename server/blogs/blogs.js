@@ -6,6 +6,7 @@ const blogsSchema = new mongoose.Schema({
     title: String,
     description: String,
     category: {type: Schema.Types.ObjectId, ref: 'categories'},
+    author: {type: Schema.Types.ObjectId, ref: 'users'},
     image: String,
     // key: Number,  ?? 
 })

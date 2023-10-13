@@ -14,48 +14,61 @@
 
             <% 
             // console.log(blogs);
-                blogs.forEach(item => {
+                blogs.forEach((item, index) => {
             %>
                 <div class="">
                    
                     <div class="index-blogs-container">
-                        <div class="index-h3">
-                            <img src="<%= item.image %>" alt="">
-                            <h4 class="left"><%= item.title %></h4>
-                            <div class="edit-content" >
-                                <img src="/img/3dots.svg" alt="" onclick="openModal()">
-                                <p>Еще</p>
-
-                               
-                                <div id="modal-window">
-                                    <div class="modal-content">
-                                        <div class="modal-content modal1">
-                                            <p>редактировать</p>
-                                        </div>
-                                        <div class="modal-content modal2">
-                                            <p>удалить</p>
-                                        </div>
+                        <div class="blog-content">
+                            <div class="index-h3">
+                                    <div>
+                                        <h4 class="left"><%= item.title %></h4>
                                     </div>
-                                </div>
-            
+                                    
+                                    <div class="edit-content" >
+                                    <img src="/img/3dots.svg" alt="" onclick="openModal(this)" data-index="<%= index %>">
+                                    <p>Еще</p>
+                                    </div>
+                            
+                    
                             </div>
+                            
+                            <img src="<%= item.image %>" alt="">
                         </div>
                     
                         <span class="left"><%= item.description %></span>
-                        
+                    
                     </div>
                     <div class="index-blogs-data">
                         <img class="date" src="/img/icons/date-index.svg" alt="">
                         <img class="views" src="/img/icons/views-index.svg" alt="">
                         <img class="comments" src="/img/icons/comments-index.svg" alt="">
                         <img class="category" src="/img/icons/category-index.svg" alt="">
-                        <img class="author" src="/img/icons/author-index.svg" alt="">
+                        <div>
+                            <h4 style="width: 30px;"><% item.category %></h4>
+                        </div>
+                        
+                        <img class="author" src="/img/icons/author-index.svg" 
+                        alt="">
+                        <h4><% item.author %></h4>
                     </div>
                 </div>
+                <div id="modal-window">
+                                <div class="modal-content">
+                                    <div class="modal-content modal1">
+                                        <a href="/edit-blog/ <%= item._id %>">
+                                            <p>редактировать</p>
+                                        </a>
+                                    </div>
+                                    <div class="modal-content modal2">
+                                        <p>удалить</p>
+                                    </div>
+                                </div>
+                            </div>  
             <%        
                 }); 
             %>
-            
+                        
             
   
         </div>
@@ -74,7 +87,6 @@
             </div>   
         </div>
     </div>
-    <script src="../js/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <%- include('../views/partials/script.ejs') %>
 </body>
 </html>

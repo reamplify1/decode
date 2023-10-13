@@ -4,7 +4,7 @@ const app = express();
 const mongooseStore = require('connect-mongo')
 const session = require('express-session')
 const passport = require('passport')
-//  / - автоматически переносит в папке паблик
+//  / - автоматически переносит в папке паблик //все статичные файлы
 app.use(express.static(__dirname + '/public'));
 
 app.use(express.urlencoded()) // расшифровка
@@ -36,7 +36,7 @@ app.use(require('./server/auth/router'))
 app.use(require('./server/blogs/router'))
 
 
-app.use(require('./server/options/router'))
+
 
 //рендер index.ejs
 // app.get('/', (req, res) => {

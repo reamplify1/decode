@@ -10,15 +10,21 @@
         <span>Редактировать блог</span>
         <form action="/api/blog-edit" method="POST" class="registration-box mb-3" enctype="multipart/form-data">   
             <fieldset>
-                <!-- <input type="hidden" value="<%= blog._id %>" name="id"> -->
+                <input type="hidden" value="<%= blog._id %>" name="id">
             </fieldset>
             
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Введите заголовок блога" name="title">
             <select class="form-select" aria-label="Default select example">
                 <option selected>Выберите категорию</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <% 
+                    categories.forEach(category => { 
+                %>
+                    <option value="<%= category._id %>" selected><%= category.name %> </option>
+                <%
+                    })
+                %>
+
+           
                 
                 <label for="exampleFormControlTextarea1" class="form-label">Example textarea pla</label>
             </select>
@@ -28,7 +34,7 @@
                 </div>
             </div>
                 
-            <textarea class="form-control new-blog-description" id="exampleFormControlTextarea1" rows="3" placeholder="Введите описание блога" name="description" ></textarea>
+            <textarea class="form-control new-blog-description" id="exampleFormControlTextarea1" rows="3" placeholder="Введите описание блога" name="description" ><%= blog.description %></textarea>
            
             <button type="submit">Сохранить</button>
         </form>

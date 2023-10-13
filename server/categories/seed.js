@@ -19,7 +19,7 @@ async function writeDataCategory() {
     if (length === 0) {
         for (let index = 0; index < data.length; index++) {
             const item = data[index];
-            await new Categories({
+            await new categories({
                 name: item,
                 key: index
             }).save();
@@ -44,5 +44,8 @@ async function writeDataCategory() {
 // }
 
 // module.exports = {writeDataCategory, data};
-module.exports = writeDataCategory;
+module.exports = 
+{
+    writeDataCategory
+};
 
