@@ -220,6 +220,9 @@ img.author{
     
     
 }
+.modal-content a{
+    text-decoration: none;
+}
 .modal1{
     background-color: #F8F8F8;
     

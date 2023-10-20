@@ -10,17 +10,17 @@
         <span>Новый блог</span>
         <form action="/new-blog/new" method="POST" class="registration-box mb-3" enctype="multipart/form-data">   
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Введите заголовок блога" name="title">
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" name="category">
                 <option selected>Выберите категорию</option>
                 <% 
                     categories.forEach(category => {
                 %>
-                    <option value=""><%= category.name %> </option>
+                    <option value="<%= category.id %>"><%= category.name %> </option>
                 <%
                     })
                 %>
 
-           
+    
                 <label for="exampleFormControlTextarea1" class="form-label">Example textarea pla</label>
             </select>
             

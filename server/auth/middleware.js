@@ -1,6 +1,9 @@
-const isAuth = (req,res, next) => {
-    console.log(req.user);
-    next()
+const isAuth = (req, res, next) =>{
+    // console.log(req.user);
+    if(req.user){
+        next()
+    }else{
+        res.status(401).send("user is not authorized")
+    }
 }
-
 module.exports = {isAuth}
