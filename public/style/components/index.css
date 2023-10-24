@@ -31,18 +31,11 @@
     text-align: center;
 
 }
-.index-blogs img{
+.card-image img{
     margin: 30px;
     width: 600px;
 }
-.index-blogs-container h4{
-    font-size: 20px;
-    font-weight: 400;
-    margin: 30px 15px;
-    /* display: flex; */
-    /* justify-content: start; */
-    /* text-align: left; */
-}
+
 
 .index-blogs-container span{
     font-size: 17px;
@@ -114,4 +107,16 @@ img.author{
     margin-bottom: 15px;
     padding-bottom: 5px;
     font-weight: 500;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+.pages a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000
 }

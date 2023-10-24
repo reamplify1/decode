@@ -8,6 +8,8 @@ const blogsSchema = new mongoose.Schema({
     category: {type: Schema.Types.ObjectId, ref: 'category'},
     user: {type: Schema.Types.ObjectId, ref: 'user'},
     image: String,
+    views: {type: Number, default: 0},
+    date: {type: Date, default: Date.now}
     // key: Number,  ?? 
 })
 

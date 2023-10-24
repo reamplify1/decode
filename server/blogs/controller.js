@@ -1,4 +1,4 @@
-const blogs = require('./blogs');
+const Blog = require('./blogs');
 const {upload} = require('./multer')
 // const {upload} = require('./multer')
 const fs = require('fs')
@@ -7,7 +7,7 @@ const path = require('path')
 const createBlog = async(req, res) =>{
     // console.log(req.body);
     if(req.body.title.length != 0){
-        await new blogs({
+        await new Blog({
             title: req.body.title,
             description: req.body.description,
             category: req.body.category,
@@ -60,16 +60,16 @@ const createBlog = async(req, res) =>{
 //         }
 // }
 const editBlog = async (req, res) => {
-    if(req.file && req.body.title > 0 &&
-        req.body.description > 0)
+    if(req.file && req.body.title.length > 0 &&
+        req.body.description.length > 0)
         {
-            const blog = await blogs.findById(req.body.id)
+            const blog = await Blog.findById(req.body.id)
             fs.unlinkSync(path.join(__dirname + '../../../public' + blog.image))
             //1-й способ
             blog.title = req.body.title;   
             blog.description = req.body.description;
             blog.category = req.body.category;
-            blog.image = `img/blogs/${req.file.filename}`;
+            blog.image = `/img/blogs/${req.file.filename}`;
             blog.user = req.user._id 
             blog.save()
             //2-й способ
@@ -87,14 +87,14 @@ const editBlog = async (req, res) => {
 }
 
 const deleteBlog = async(req, res) => {
-     const blog = await blogs.findById(req.params.id)
+     const blog = await Blog.findById(req.params.id)
      if(blog){
-        fs.unlinkSync(path.join(__dirname + '../../../public' + blogs.image))
-        await blogs.deleteOne({_id: req.params.id})
+        fs.unlinkSync(path.join(__dirname + '../../../public' + blog.image))
+        await Blog.deleteOne({_id: req.params.id})
         res.status(200).send('ok')
      } else {
         res.status(400).send('Not found')
-     }
+     } 
 }
 
 module.exports = {createBlog, editBlog, deleteBlog}

@@ -1,5 +1,6 @@
 function deleteBlog(id, userID){
-	const data = axios.delete(`/api/blogs/${id}`)
+	// console.log('work');
+	axios.delete(`/api/blogs/${id}`)
 	.then(data => {
 		if(data.status == 200){
 			location.replace(`/my-blog/${userID}`)

@@ -1,4 +1,4 @@
-const categories = require('./categories');
+const Categories = require('./categories');
 
 const data = [
     'Прогнозы в IT',
@@ -14,7 +14,7 @@ const data = [
 ];
 
 async function writeDataCategory() {
-    const length = await categories.countDocuments();
+    const length = await Categories.countDocuments();
 
     if (length === 0) {
         for (let index = 0; index < data.length; index++) {

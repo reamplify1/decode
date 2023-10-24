@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<%- include('partials/head.ejs') %>
+	<title>Document</title>
+</head>
+<body>
+	<%- include('partials/header.ejs') %>
+	<%- include('partials/script.ejs') %>
+	<div class="container">
+		<div class="main">
+			<!-- <fieldset>
+                <input type="hidden" value="<%= blogs._id %>" name="id">
+            </fieldset> -->
+				<div>
+					<img src="<%= blogs.image %>" alt="">
+				</div>
+				<div class="main-2">
+					<h2><%= blogs.title %></h2>
+					<p><%= blogs.description %></p>
+					<div class="edit-content" >
+						<img src="/img/3dots.svg" alt="" onclick="openModal(this)" data-index="">
+						<p>Еще</p>
+					</div>
+				</div>
+			
+					
+		</div>
+	</div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const blogs = require('./blogs')
+const Blog = require('./blogs')
 const {createBlog, editBlog, deleteBlog} = require('./controller') 
 const {upload} = require('./multer')
 const { isAuth } = require('../auth/middleware')

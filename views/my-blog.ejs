@@ -8,70 +8,84 @@
     <%- include('../views/partials/header.ejs') %>
     <div class="index-container">
         <div class="index-blogs shadow p-3 mb-5 bg-white rounded">
-            <h3>Мои блоги</h3>
-            <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
-
+            <div class="head-title">
+                <h3>Мои блоги</h3>
+                <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
+            </div>
 
             <% 
             // console.log(blogs);
                 blogs.forEach((item, index) => {
             %>
-                <div class="">
-                   
-                    <div class="index-blogs-container">
-                        <div class="blog-content">
-                            <div class="index-h3">
-                                    <div>
-                                        <h4 class="left"><%= item.title %></h4>
-                                    </div>
-                                    
-                                    <div class="edit-content" >
-                                    <img src="/img/3dots.svg" alt="" onclick="openModal(this)" data-index="<%= index %>">
-                                    <p>Еще</p>
-                                    </div>
-                            
-                    
-                            </div>
-                            
+                <div>
+                    <div class="card">
+                        <div class="card-title">
+                            <a href="/detail/<%=item._id%>">
+                                <h4 class="left"><%= item.title %></h4>
+                            </a>
+                        </div>                                    
+                        <div class="card-image">
                             <img src="<%= item.image %>" alt="">
                         </div>
-                    
-                        <span class="left"><%= item.description %></span>
-                    
-                    </div>
+                        <div onclick="toggleModal(<%= index %>)" class="edit">
+                            <div class="edit-hidden">
+                            </div>
+                            <div class="edit-content" >
+                                <img src="/img/3dots.svg" alt="" onclick="openModal(this)" data-index="<%= index %>">
+                                <p>Еще</p>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <span class="left"><%= item.description %></span>
+                        </div>
+                    </div> 
                     <div class="index-blogs-data">
-                        <img class="date" src="/img/icons/date-index.svg" alt="">
-                        <img class="views" src="/img/icons/views-index.svg" alt="">
-                        <img class="comments" src="/img/icons/comments-index.svg" alt="">
-                        <img class="category" src="/img/icons/category-index.svg" alt="">
                         <div>
-                            <h4 style="width: 30px;"><%= item.category.name %></h4>
+                            <img class="date" src="/img/icons/date-index.svg" alt="">
+                            <h4><%= item.date.getDate() + '.' + (item.date.getMonth() + 1) + '.' + item.date.getFullYear() %></h4>
+                        </div>
+                        <div>
+                            <img class="views" src="/img/icons/views-index.svg" alt="">
+                            <h4><%= item.views %></h4>
                         </div>
                         
-                        <img class="author" src="/img/icons/author-index.svg" 
-                        alt="">
-                        <h4><%= item.user.full_name %></h4>
-                    </div>
+                        <img class="comments" src="/img/icons/comments-index.svg" alt="">
+                        
+                        <div>
+                            <img class="category" src="/img/icons/category-index.svg" alt="">
+                            <h4 style="width: 30px;"><%= item.category? item.category.name : 'Нет категории' %></h4>
+                        </div>
+                        <div>
+                            <img class="author" src="/img/icons/author-index.svg" 
+                            alt="">
+                            <h4><%= item.user.full_name %></h4>
+                        </div>
+                        
                 </div>
-                <div id="modal-window">
-                                <div class="modal-content">
-                                    <div class="modal-content modal1">
+                    <div onclick="closeModal()" id="modal-window">
+                        <div class="modal-content">
+                             <div class="modal-content modal1">
                                         <a href="/edit-blog/<%= item._id %>">
                                             <p>редактировать</p>
                                         </a>
-                                    </div>
-                                    <div class="modal-content modal2">
+                               </div>
+                            <div class="modal-content modal2">
                                         <a onclick="deleteBlog('<%= item._id %>', '<%= item.user._id %>')">
                                             <p>удалить</p>
                                         </a>
-                                    </div>
-                                </div>
-                            </div>  
+                            </div>
+                         </div>
+                    </div>  
+                </div>
             <%        
                 }); 
             %>
-        </div>
-        
+      
+
+    
+
+
+    </div>  
         <div class="index-category shadow p-3 mb-5 bg-white rounded">
             <img class="avatar" src="/img/avatar.jpeg" alt="">
             <div class="blog-h3">
@@ -85,7 +99,8 @@
             </div>   
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js" integrity="sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <%- include('../views/partials/script.ejs') %>
 </body>
 </html>

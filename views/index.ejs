@@ -7,60 +7,74 @@
 <body>    
     <%- include('../views/partials/header.ejs') %>
     <div class="index-container">
+        
         <div class="index-blogs shadow p-3 mb-5 bg-white rounded">
-            <h3>Блоги по программированию</h3>
-            <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
-            <img src="/img/image 1.svg" alt="">
+                <div class="head-title">
+                    <h3>Мои блоги</h3>
+                    <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
+                </div>
+            <% blogs.forEach(item => { %>
             <div class="index-blogs-container">
-                <h4 class="left">Обзор Report Manager от Webix</h4>
+                <div class="card-title">
+                    <a href="/detail/<%= item._id %>">
+                        <h4 class="left"><%= item.title %></h4>
+                    </a>
+                </div> 
+                <% if(item.image){ %>
+                    <div class="card-image">
+                        <img src="<%= item.image %>" alt="">
+                    </div>
+                <% } %>
+                <div class="edit">
+                    <div class="edit-hidden">
+                    </div>
+                    <div class="edit-content" >
+                        <img src="/img/3dots.svg" alt="" onclick="openModal(this)">
+                        <p>Еще</p>
+                    </div>
+                </div>
+             
             
-                <span class="left">Осень 2020 года стала плодотворным временем для специалистов Webix. </span>
-                <span class="left">Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. </span>
-                <span class="left">Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его</span>
+                <div class="card-description">
+                    <span class="left"><%= item.description %></span>
+                </div>
+
+                <div class="index-blogs-data">
+                    <img class="date" src="/img/icons/date-index.svg" alt="">
+                        <img class="views" src="/img/icons/views-index.svg" alt="">
+                        <img class="comments" src="/img/icons/comments-index.svg" alt="">
+                        <img class="category" src="/img/icons/category-index.svg" alt="">
+                        <div>
+                            <h4 style="width: 30px;"><%= item.category.name %></h4>
+                        </div>
+                        
+                        <img class="author" src="/img/icons/author-index.svg" 
+                        alt="">
+                        <h4><%= item.user.full_name %></h4>
+                </div>
             </div>
-            <div class="index-blogs-data">
-                <img class="date" src="/img/icons/date-index.svg" alt="">
-                <img class="views" src="/img/icons/views-index.svg" alt="">
-                <img class="comments" src="/img/icons/comments-index.svg" alt="">
-                <img class="category" src="/img/icons/category-index.svg" alt="">
-                <img class="author" src="/img/icons/author-index.svg" alt="">
-            </div>
-            <img src="/img/image 3.svg" alt="">
-            <div class="index-blogs-container">
-                <h4 class="left">Обзор Report Manager от Webix</h4>
-            
-                <span class="left">Осень 2020 года стала плодотворным временем для специалистов Webix. </span>
-                <span class="left">Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. </span>
-                <span class="left">Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его</span>
-            </div>
-            <div class="index-blogs-data-2">
-                <img class="date" src="/img/icons/date-index.svg" alt="">
-                <img class="views" src="/img/icons/views-index.svg" alt="">
-                <img class="comments" src="/img/icons/comments-index.svg" alt="">
-                <img class="category" src="/img/icons/category-index.svg" alt="">
-                <img class="author" src="/img/icons/author-index.svg" alt="">
-            </div>
-          
+
+            <%
+            }) %>
+
+       
         </div>
-        
-        
         <div class="index-category shadow p-3 mb-5 bg-white rounded">
             <h3>Категории</h3>
             <% categories.forEach(category => { %>
-                <a class="line" href="/<%= category.key %>"><%= category.name %></a>
+                <a class="line" href="?categ=<%= category.key %>"><%= category.name %></a>
             <% }) %>
-
-            <!-- <a class="line" href="">Веб-разработка</a>
-            <a class="line" href="">Мобильная разработка</a>
-            <a class="line" href="">Фриланс</a>
-            <a class="line" href="">Алгоритмы</a>
-            <a class="line" href="">Тестирование IT систем</a>
-            <a class="line" href="">Разработка игр</a>
-            <a class="line" href="">Дизайн и юзабилити</a>
-            <a class="line" href="">Искуственный интелект</a>
-            <a class="line" href="">Машинное обучение</a>
-          -->
         </div>
+     
+    </div>
+    <div class="pages">
+        <%
+            for(let i = 0; i < pages; i++){
+        %>
+                <a href="?page=<%= i %>"><%= i+1 %></a>
+        <%        
+            } 
+        %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
