@@ -42,10 +42,10 @@ router.get('/new-blog', async (req,res) => {
     res.render('new-blog', {categories: allCategories, user: req.user ? req.user : {}});
 }) ;
 router.get('/my-blog/:id', async(req,res) => { //'/my-blog/:id'
-    const allBlogs = await Blog.find().populate('category').populate('user') // получили блоги, затем отправили их на страницу
-    // console.log(allBlogs, "blogggg");
+    const blogs = Blog.find({user: req.params.id}).populate('category').populate('user') // получили блоги, затем отправили их на страницу
+    // console.log(blogs, "blogggg");
     // console.log(req.body);
-    res.render('my-blog', {user: req.user ? req.user : {}, blogs: allBlogs, });
+    res.render('my-blog', {user: req.user ? req.user : {}, blogs});
 }) ;
 router.get('/forum', (req,res) => {
     res.render('forum', {user: req.user ? req.user : {}});
@@ -56,7 +56,7 @@ router.get('/edit-blog/:id', async(req,res) => {
     res.render('edit-blog', {user: req.user ? req.user : {},  categories: allCategories, blog});
 }) ;
 router.get('/detail/:id', async(req,res) => {
-    const allBlogs = await Blog.find().populate('category').populate('user')
+    const allBlogs = await Blog.findOne({_id: req.params.id}).populate('category').populate('user')
     res.render('detail', {user: req.user ? req.user : {}, blogs: allBlogs, })
 })
 
