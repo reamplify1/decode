@@ -39,7 +39,7 @@ const createBlog = async(req, res) =>{
 //             {
 //                 title: req.body.title,
 //                 description : req.body.description,
-//                 category : req.body.category,
+//                 category : req.body.ory,
 //                 // image : `/images/blogs/${req.file.filename}`,
 //             }
 //         )

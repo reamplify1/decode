@@ -13,9 +13,18 @@
                     <h3>Мои блоги</h3>
                     <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
                 </div>
+            <%
+                let localsString = ''
+                if(locals.category){
+                    localsString = `category=${locals.category}&`
+                }
+                if(locals.search){
+                    localsString = `search=${locals.search}&`
+                }
+            %>
             <% blogs.forEach(item => { %>
             <div class="index-blogs-container">
-                <div class="card-title">
+                <div class="card-title"> 
                     <a href="/detail/<%= item._id %>">
                         <h4 class="left"><%= item.title %></h4>
                     </a>
@@ -62,7 +71,7 @@
         <div class="index-category shadow p-3 mb-5 bg-white rounded">
             <h3>Категории</h3>
             <% categories.forEach(category => { %>
-                <a class="line" href="?categ=<%= category.key %>"><%= category.name %></a>
+                <a class="line" href="?category=<%= category.key %>"><%= category.name %></a>
             <% }) %>
         </div>
      
@@ -71,7 +80,7 @@
         <%
             for(let i = 0; i < pages; i++){
         %>
-                <a href="?page=<%= i %>"><%= i+1 %></a>
+                <a href="?<%= localsString %>page=<%= i %>"><%= i+1 %></a>
         <%        
             } 
         %>
