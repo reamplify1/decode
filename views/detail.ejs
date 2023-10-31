@@ -9,23 +9,55 @@
 	<%- include('partials/script.ejs') %>
 	<div class="container">
 		<div class="main">
-			<!-- <fieldset>
+			<fieldset>
                 <input type="hidden" value="<%= blogs._id %>" name="id">
-            </fieldset> -->
-				<div>
+            </fieldset>
+				<div class="main-img">
 					<img src="<%= blogs.image %>" alt="">
 				</div>
 				<div class="main-2">
 					<h2><%= blogs.title %></h2>
 					<p><%= blogs.description %></p>
 					<div class="edit-content" >
-						<img src="/img/3dots.svg" alt="" onclick="openModal(this)" data-index="">
+						<img src="/img/3dots.svg" alt="" data-index="<%=  %>">
 						<p>Еще</p>
 					</div>
 				</div>
+			<div class="comments">
+				<h3>Комментарии</h3>
+				<% if(user && user._id) { %>
+					<form onsubmit="sendComment(event)" class="add-comment-form">
+						<p>Добавить комментарий</p>
+						<input type="hidden" value="<%= user._id %>" id="comment_user">
+						<input type="hidden" value="<%= blogs._id %>" id="comment_blog">
+						<textarea id="comment-text"></textarea>
+						<button type="submit">Сохранить</button>
+					</form>
+				<% } else{ %>
+					<p><a href="/login">Войдите</a>
+						или 
+						<a href="/registration">зарегистрируйтесь</a>
+						чтобы оставить комментарий 
+					</p>
+				<% } %>
+				<%
+					if(comments){
+						comments.forEach(comment => {
+				%>			
+							<div class="comment">
+								<p><%= comment.text %></p>	
+							</div>
+				<%
+						})
+					} 
+				%>
+			</div>
+
 			
 					
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </body>
 </html>

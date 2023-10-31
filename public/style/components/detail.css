@@ -7,4 +7,53 @@
 }
 .main-2{
 	width: 70%;
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
+}
+.main-2 h2{
+	font-size: 25px;
+	font-weight: 700;
+}
+.main-img img{
+	height: 400px;
+}
+.add-comment-form{
+	margin-top: 30px;
+
+}
+.add-comment-form textarea{
+	width: 100%;
+	resize: none;
+	height: 100px;
+	margin-top: 10px;
+}
+.add-comment-form button {
+	width: 120px;
+    height: 34px;
+    background-color: #00A2DC;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+.comments a{
+	width: 120px;
+    height: 34px;
+    background-color: #00A2DC;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+	text-decoration: none;
+	padding: 4px;
+	
+}
+
+.comments h3{	
+	font-size: 20px;
+
+}
+.comments p {
+	margin-top: 20px;
+	line-height: 1.5;
 }

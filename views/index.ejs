@@ -11,17 +11,9 @@
         <div class="index-blogs shadow p-3 mb-5 bg-white rounded">
                 <div class="head-title">
                     <h3>Мои блоги</h3>
-                    <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
+                    <p>Популярные и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
                 </div>
-            <%
-                let localsString = ''
-                if(locals.category){
-                    localsString = `category=${locals.category}&`
-                }
-                if(locals.search){
-                    localsString = `search=${locals.search}&`
-                }
-            %>
+
             <% blogs.forEach(item => { %>
             <div class="index-blogs-container">
                 <div class="card-title"> 
@@ -34,7 +26,7 @@
                         <img src="<%= item.image %>" alt="">
                     </div>
                 <% } %>
-                <div class="edit">
+                <!-- <div class="edit">
                     <div class="edit-hidden">
                     </div>
                     <div class="edit-content" >
@@ -42,7 +34,7 @@
                         <p>Еще</p>
                     </div>
                 </div>
-             
+              -->
             
                 <div class="card-description">
                     <span class="left"><%= item.description %></span>
@@ -53,10 +45,18 @@
                         <img class="views" src="/img/icons/views-index.svg" alt="">
                         <img class="comments" src="/img/icons/comments-index.svg" alt="">
                         <img class="category" src="/img/icons/category-index.svg" alt="">
-                        <div>
-                            <h4 style="width: 30px;"><%= item.category.name %></h4>
-                        </div>
-                        
+                        <% if(item.category){ %>
+                            <div>
+                                <img class="category" src="/img/icons/category-index.svg" alt="">
+                                <h4 style="width: 30px;"><%= item.category? item.category.name : 'Нет категории' %></h4>
+                            </div>
+                        <% } else{ %> 
+                       
+                            <div>
+                                <img class="category" src="/img/icons/category-index.svg" alt="">
+                                <h4 style="width: 30px;">Нет категории</h4>
+                            </div>
+                        <% } %>
                         <img class="author" src="/img/icons/author-index.svg" 
                         alt="">
                         <h4><%= item.user.full_name %></h4>
@@ -78,6 +78,14 @@
     </div>
     <div class="pages">
         <%
+            let localsString = ''
+            if(locals.category){
+                localsString = `category=${locals.category}&`
+            }
+            if(locals.search){
+                localsString = `search=${locals.search}&`
+            }
+        
             for(let i = 0; i < pages; i++){
         %>
                 <a href="?<%= localsString %>page=<%= i %>"><%= i+1 %></a>

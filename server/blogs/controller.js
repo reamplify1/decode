@@ -16,7 +16,7 @@ const createBlog = async(req, res) =>{
         ){  
             newBlog.title = req.body.title
             newBlog.description = req.body.description
-            newBlog.category = req.body.category
+            // newBlog.category = req.body.category
             newBlog.user = req.user._id
             if(req.body.category !== 'Выберите категорию'){
                 newBlog.category = req.body.category
@@ -37,28 +37,28 @@ const createBlog = async(req, res) =>{
 
 const editBlog = async (req, res) => {
     try{
-            if(
+        if(
             req.file && req.body.title.length > 0 &&
             req.body.description.length > 0 &&
             req.body.category.length != 0
         ){
-            if(req.file){
-
-                await new Blog({
-                    title: req.body.title,
-                    category: req.body.category,
-                    description: req.body.description,
-                    image: `/img/blogs/${req.file.filename}`,
-                    user: req.user._id
-                }).save()
-            } else {
-                await new Blog({
-                    title: req.body.title,
-                    category: req.body.category,
-                    description: req.body.description,
-                    user: req.user._id
-                }).save()
+            const blog = await Blog.findById(req.body.id);
+            // console.log(blog);
+            if(req.body.category !== 'Выберите категорию'){
+                blog.category = req.body.category
             }
+            if(req.file){
+                fs.unlinkSync(path.join(__dirname + '../../../public' + blog.image))
+                blog.image = `/img/blogs/${req.file.filename}`
+            }
+            blog.title = req.body.title
+            blog.description = req.body.description
+            blog.save()
+            res.redirect('/my-blog/' + req.user._id)
+        } else {
+            res.redirect(`/edit-blog/${req.body.id}?error=1`)
+        }
+  
 
             // const blog = await Blog.findById(req.body.id)
             // fs.unlinkSync(path.join(__dirname + '../../../public' + blog.image))
@@ -70,10 +70,6 @@ const editBlog = async (req, res) => {
             // blog.user = req.user._id 
             // blog.save()
 
-            res.redirect('/my-blog/' + req.user._id)
-        } else {
-            res.redirect(`/edit-blog/${req.body.id}?error=1`)
-        }
     } catch(err) {
         console.log(err);
         res.status(400).redirect(`/edit-blog/${req.body.id}?error=2`)

@@ -34,6 +34,7 @@ app.use(require('./server/categories/router'))
 app.use(require('./server/auth/router'))
 
 app.use(require('./server/blogs/router'))
+app.use(require('./server/comments/router'))
 
 
 

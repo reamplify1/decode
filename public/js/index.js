@@ -1,26 +1,26 @@
 
 // Получаем ссылку на div modal-window
-var modal = document.getElementById('modal-window');
+var modal = document.getElementsByClassName('modal-window');
 var currentIndex; // Хранит индекс текущего блога
 
 function toggleModal(index) {
     currentIndex = index; // Сохраняем текущий индекс
-
-    // Меняем стиль отображения в зависимости от текущего состояния
-    if (modal.style.display === 'block') {
-        closeModal();
+//     modal[currentIndex].classList.toggle('active-modal') - легкий способ
+//     // Меняем стиль отображения в зависимости от текущего состояния
+    if (modal[currentIndex].style.display === 'block') {
+        closeModal(currentIndex);
     } else {
-        openModal();
+        openModal(currentIndex);
     }
 }
 
-function openModal() {
-    modal.style.display = 'block';
+function openModal(currentIndex) {
+    modal[currentIndex].style.display = 'block';
     document.addEventListener('keydown', closeModalOnEsc);
 }
 
-function closeModal() {
-    modal.style.display = 'none';
+function closeModal(currentIndex) {
+    modal[currentIndex].style.display = 'none';
     document.removeEventListener('keydown', closeModalOnEsc);
 }
 

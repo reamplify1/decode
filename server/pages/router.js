@@ -3,6 +3,7 @@ const router = express.Router();
 const Categories = require('../categories/categories')
 const Blog = require('../blogs/blogs');
 const user = require('../auth/user');
+const Comment = require('../comments/comments')
 
 // const options = require('../options/options')
 
@@ -34,10 +35,10 @@ router.get('/', async(req, res) => {
         res.locals.search = req.query.search
     }
  
-    const totalBlogs = await Blog.count()
+    const totalBlogs = await Blog.count(options)
     const allCategories = await Categories.find()
     // const user = await user.findById(req.params.id)
-    const blogs = await Blog.find(options).limit(limit).skip(page * limit).populate('category').populate('user')
+    const blogs = await Blog.find(options).limit(limit).skip(page * limit).sort({_id: -1}).populate('category').populate('user')
     res.render('index', {blogs, categories: allCategories, user: req.user ? req.user : {}, pages: Math.ceil(totalBlogs/limit)})
 })
 
@@ -55,7 +56,7 @@ router.get('/new-blog', async (req,res) => {
     res.render('new-blog', {categories: allCategories, user: req.user ? req.user : {}});
 }) ;
 router.get('/my-blog/:id', async(req,res) => { //'/my-blog/:id'
-    const blogs = await Blog.find({user: req.params.id}).populate('category').populate('user') // получили блоги, затем отправили их на страницу
+    const blogs = await Blog.find({user: req.params.id}).sort({_id: -1}).populate('category').populate('user') // получили блоги, затем отправили их на страницу
     // console.log(blogs, "blogggg");
     // console.log(req.body);
     res.render('my-blog', {user: req.user ? req.user : {}, blogs});
@@ -69,8 +70,10 @@ router.get('/edit-blog/:id', async(req,res) => {
     res.render('edit-blog', {user: req.user ? req.user : {},  categories: allCategories, blog});
 }) ;
 router.get('/detail/:id', async(req,res) => {
+    const comments = await Comment.find({blogId: req.params.id})
+    console.log(comments);
     const allBlogs = await Blog.findOne({_id: req.params.id}).populate('category').populate('user')
-    res.render('detail', {user: req.user ? req.user : {}, blogs: allBlogs, })
+    res.render('detail', {user: req.user ? req.user : {}, blogs: allBlogs, comments: comments })
 })
 
 // router.get('/new', async(req,res) => {

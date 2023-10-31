@@ -173,7 +173,7 @@ img.author{
     z-index: 10;
 
 } */
-#modal-window {
+.modal-window {
     position: fixed;
     top: 50%;
     left: 50%; /* Позиция справа от родительского элемента (в данном случае, отображаемой картинки) */
@@ -193,9 +193,14 @@ img.author{
     align-items: center;
     font-size: 15px;
     font-weight: 700;
-    
-    
+
 }
+
+/* .active-modal{
+    display: block;
+} */
+
+
 .modal-content a{
     text-decoration: none;
 }

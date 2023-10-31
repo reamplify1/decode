@@ -10,7 +10,7 @@
         <div class="index-blogs shadow p-3 mb-5 bg-white rounded">
             <div class="head-title">
                 <h3>Мои блоги</h3>
-                <p>Популярыне и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
+                <p>Популярные и лучшие публикации по программированию для начинающих и профессиональных программистов и IT-специалистов.</p>
             </div>
 
             <% 
@@ -35,7 +35,7 @@
                             <div class="edit-hidden">
                             </div>
                             <div class="edit-content" >
-                                <img src="/img/3dots.svg" alt="" onclick="openModal(this)" data-index="<%= index %>">
+                                <img src="/img/3dots.svg" alt="" data-index="<%= index %>">
                                 <p>Еще</p>
                             </div>
                         </div>
@@ -59,8 +59,8 @@
                                 <img class="category" src="/img/icons/category-index.svg" alt="">
                                 <h4 style="width: 30px;"><%= item.category? item.category.name : 'Нет категории' %></h4>
                             </div>
-                        <% } %> 
-                        <% if(item.category == 'Выберите категорию') {%>
+                        <% } else{ %> 
+                       
                             <div>
                                 <img class="category" src="/img/icons/category-index.svg" alt="">
                                 <h4 style="width: 30px;">Нет категории</h4>
@@ -74,7 +74,7 @@
                         </div>
                         
                 </div>
-                    <div onclick="closeModal()" id="modal-window">
+                    <div onclick="closeModal()" class="modal-window">
                         <div class="modal-content">
                              <div class="modal-content modal1">
                                         <a href="/edit-blog/<%= item._id %>">
