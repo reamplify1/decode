@@ -70,7 +70,7 @@ router.get('/edit-blog/:id', async(req,res) => {
     res.render('edit-blog', {user: req.user ? req.user : {},  categories: allCategories, blog});
 }) ;
 router.get('/detail/:id', async(req,res) => {
-    const comments = await Comment.find({blogId: req.params.id})
+    const comments = await Comment.find({blogId: req.params.id}).populate('authorId')
     console.log(comments);
     const allBlogs = await Blog.findOne({_id: req.params.id}).populate('category').populate('user')
     res.render('detail', {user: req.user ? req.user : {}, blogs: allBlogs, comments: comments })

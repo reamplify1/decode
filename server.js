@@ -8,6 +8,7 @@ const passport = require('passport')
 app.use(express.static(__dirname + '/public'));
 
 app.use(express.urlencoded()) // расшифровка
+app.use(express.json()) // расшифровка
 
 app.use(session({
     name: 'decode.session',       //название сессии
