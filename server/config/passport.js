@@ -6,7 +6,7 @@ const localStrategy = require('passport-local')
 const GitHubStrategy = require('passport-github2')
 // 2812442604ab9bd71174 client id
 //3d73aba2ec47b82ef4634647f4429d5cd25439a4 secret key
-
+ 
 passport.use(new localStrategy(
     {
         usernameField: 'email',
@@ -34,18 +34,19 @@ passport.use(new GitHubStrategy({
   async function(accessToken, refreshToken, profile, done) {
     const user = User.find({githubId: profile.id})
     console.log(profile);
+    if(user){
+        return done(null, newUSer);
+    } else {
     const newUSer = await new User({
         githubId: profile.id,
         full_name: profile.displayName,
-        
-
     }).save() 
     return done(null, newUSer);
 //     User.findOrCreate({ githubId: profile.id }, function (err, user) {
 //       return done(err, user);
 //     });
   }
-));
+}));
 
 passport.serializeUser(function(user, done){
     // console.log(user);

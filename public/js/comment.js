@@ -5,10 +5,15 @@ function sendComment(e){
 	const blog = document.querySelector('#comment_blog').value
 	// console.log(user, "1111");
 	// console.log(blog, '2222');
-	axios.post('/api/comments', {text: commentText, authorId: user, blogId: blog}).then(data =>{
-		if(data.data){
-			location.reload()
-			// console.log(data);
-		}
-	})
+	if(commentText.length > 0){
+		axios.post('/api/comments', {text: commentText, authorId: user, blogId: blog}).then(data =>{
+			if(data.data){
+				location.reload()
+				// console.log(data);
+			}
+		})
+	} else {
+		alert('Комментарий должен быть заполнен')
+	}
+
 }
