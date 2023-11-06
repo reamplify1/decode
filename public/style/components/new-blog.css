@@ -32,13 +32,28 @@
     border: none;
     border-radius: 3px;
 }
+.textarea{
+    display: flex;
+    margin: 0 50px;
+    flex-direction: column;
+}
+.textarea button {
+    width: 100px;
+    height: 25px;
+}
 .form-control{
+   
+    margin: 50px;
+    width: 60%;
     margin: 20px 0;
     
 }
+.yellow-btn{
+    width: 40%;
+}
 .yellow-btn input{
     margin-top: 20px;
-    width: 180px;
+    width: 280px;
     height: 40px;
     background-color: #FFF72F;
     color: #000;

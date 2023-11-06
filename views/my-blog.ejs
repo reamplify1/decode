@@ -44,30 +44,31 @@
                         </div>
                     </div> 
                     <div class="index-blogs-data">
-                        <div>
+                        <div  class="blogs-data">
                             <img class="date" src="/img/icons/date-index.svg" alt="">
                             <h4><%= item.date.getDate() + '.' + (item.date.getMonth() + 1) + '.' + item.date.getFullYear() %></h4>
                         </div>
-                        <div>
+                        <div class="blogs-data">
                             <img class="views" src="/img/icons/views-index.svg" alt="">
                             <h4><%= item.views %></h4>
                         </div>
                         
                         <img class="comments" src="/img/icons/comments-index.svg" alt="">
+                        <div class="blogs-data">
                         <% if(item.category){ %>
-                            <div>
+                          
                                 <img class="category" src="/img/icons/category-index.svg" alt="">
                                 <h4 style="width: 30px;"><%= item.category? item.category.name : 'Нет категории' %></h4>
-                            </div>
+                          
                         <% } else{ %> 
                        
-                            <div>
+                        
                                 <img class="category" src="/img/icons/category-index.svg" alt="">
                                 <h4 style="width: 30px;">Нет категории</h4>
-                            </div>
+                           
                         <% } %>
-                        
-                        <div>
+                        </div>
+                        <div class="blogs-data">
                             <img class="author" src="/img/icons/author-index.svg" 
                             alt="">
                             <h4><%= item.user.full_name %></h4>

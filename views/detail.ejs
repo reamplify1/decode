@@ -18,10 +18,30 @@
 				<div class="main-2">
 					<h2><%= blogs.title %></h2>
 					<p><%= blogs.description %></p>
-					<div class="edit-content" >
-						<img src="/img/3dots.svg" alt="" data-index="<%=  %>">
+					<div class="edit-content" onclick="toggleModal(0)">
+						<img src="/img/3dots.svg" alt="" data-index="0">
 						<p>Еще</p>
 					</div>
+
+
+
+
+					<div onclick="closeModal()" class="modal-window">
+                        <div class="modal-content">
+                             <div class="modal-content modal1">
+                                        <a href="/edit-blog/<%= blogs._id %>">
+                                            <p>редактировать</p>
+                                        </a>
+                               </div>
+                            <div class="modal-content modal2">
+                                        <a onclick="deleteBlog('<%= blogs._id %>', '<%= blogs.user._id %>')">
+                                            <p>удалить</p>
+                                        </a>
+                            </div>
+                         </div>
+                    </div>  
+
+
 				</div>
 			<div class="comments">
 				<h3>Комментарии</h3>
