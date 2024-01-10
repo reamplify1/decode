@@ -16,8 +16,11 @@ passport.use(new localStrategy(
         User.findOne({email}).then(user => {
             bcrypt.compare(password, user.password, function(err, result){
                 if (err) {return done(err)}
-                // console.log(result);
-                if (result) {return done(null, user)}
+                if (result) {
+                    return done(null, user)
+                } else {
+                    return done(null, false, { message: 'Incorrect password' });
+                }
             });
         }).catch(e => {
             return done(e)
@@ -32,16 +35,16 @@ passport.use(new GitHubStrategy({
     scope: ['openid', 'email', 'profile'], //????
   },
   async function(accessToken, refreshToken, profile, done) {
-    const user = User.find({githubId: profile.id})
+    const user = await User.findOne({githubId: profile.id})
     console.log(profile);
     if(user){
-        return done(null, newUSer);
+        return done(null, user);
     } else {
-    const newUSer = await new User({
+    const newUser = await new User({
         githubId: profile.id,
         full_name: profile.displayName,
     }).save() 
-    return done(null, newUSer);
+    return done(null, newUser);
 //     User.findOrCreate({ githubId: profile.id }, function (err, user) {
 //       return done(err, user);
 //     });
@@ -50,12 +53,13 @@ passport.use(new GitHubStrategy({
 
 passport.serializeUser(function(user, done){
     // console.log(user);
-    done(null, user._id)
+    done(null, user.id)
 })
 
 passport.deserializeUser(function(id, done){
-    // console.log(id);
     User.findById(id).then((user, err)  => {
-        done(err, user)
-    })
-})
+        done(err, user);
+    }).catch(err => {
+        done(err, null);
+    });
+});

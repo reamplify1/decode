@@ -26,7 +26,7 @@ const createBlog = async(req, res) =>{
             }
             await new Blog(newBlog).save()
             res.redirect(`/my-blog/${req.user._id}`)
-        }else {
+        }else { 
             res.redirect('/new-blog?error=1')
         }   
     } catch (err){

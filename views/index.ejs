@@ -66,9 +66,12 @@
                     <% } %>
                     </div>
                     <div class="blogs-data">
-                        <img class="author" src="/img/icons/author-index.svg" 
-                        alt="">
-                        <h4><%= item.user.full_name %></h4>
+                        <img class="author" src="/img/icons/author-index.svg" alt="">
+                        <% if (item.user && item.user.full_name) { %>
+                            <h4><%= item.user.full_name %></h4>
+                        <% } else { %>
+                            <h4>Unknown Author</h4> <!-- Или любое другое значение по умолчанию -->
+                        <% } %>
                     </div>
                     
             </div>
